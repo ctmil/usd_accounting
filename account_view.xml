@@ -1,0 +1,31 @@
+<odoo>
+
+<record model="ir.ui.view" id="usd_account_move_form">
+	<field name="name">usd.account.move.form</field>
+	<field name="model">account.move</field>
+	<field name="inherit_id" ref="account.view_move_form"></field>
+	<field name="arch" type="xml">
+		<xpath expr="//field[@name='line_ids']/tree" positional="inside">
+			<field name="debit_usd" readonly="1" optional="hide" />
+			<field name="credit_usd" readonly="1" optional="hide" />
+			<field name="balance_usd" readonly="1" optional="hide" />
+			<field name="rate_usd" readonly="1" optional="hide" />
+		</xpath>
+	</field>
+</record>
+
+<record model="ir.ui.view" id="usd_account_move_line_tree">
+	<field name="name">usd.account.move.tree</field>
+	<field name="model">account.move.line</field>
+	<field name="inherit_id" ref="account.view_move_line_tree"></field>
+	<field name="arch" type="xml">
+		<xpath expr="//tree" positional="inside">
+			<field name="debit_usd" readonly="1" optional="hide"/>
+			<field name="credit_usd" readonly="1" optional="hide"/>
+			<field name="balance_usd" readonly="1" optional="hide"/>
+			<field name="rate_usd" readonly="1" optional="hide"/>
+		</xpath>
+	</field>
+</record>
+
+</odoo>
